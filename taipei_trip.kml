@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>대만 여행 11/11-11/15</name>
+<Style id="d0"><IconStyle><color>ff3d7dff</color></IconStyle><LineStyle><color>ff3d7dff</color><width>4</width></LineStyle></Style>
+<Style id="d1"><IconStyle><color>ff2fa5ff</color></IconStyle><LineStyle><color>ff2fa5ff</color><width>4</width></LineStyle></Style>
+<Style id="d2"><IconStyle><color>ff47b84c</color></IconStyle><LineStyle><color>ff47b84c</color><width>4</width></LineStyle></Style>
+<Style id="d3"><IconStyle><color>fff3963f</color></IconStyle><LineStyle><color>fff3963f</color><width>4</width></LineStyle></Style>
+<Style id="d4"><IconStyle><color>ffb0279c</color></IconStyle><LineStyle><color>ffb0279c</color><width>4</width></LineStyle></Style>
+<Folder><name>11/11 (수) 도착 · 시먼·완화</name>
+<Placemark><name>1. 도원공항 제1터미널 (12:25 도착)</name><styleUrl>#d0</styleUrl><Point><coordinates>121.2328,25.0777,0</coordinates></Point></Placemark>
+<Placemark><name>2. 호텔: 솔라리아 니시테츠 시먼</name><styleUrl>#d0</styleUrl><Point><coordinates>121.5085,25.0435,0</coordinates></Point></Placemark>
+<Placemark><name>3. 라오산둥 우육면 (늦은 점심)</name><styleUrl>#d0</styleUrl><Point><coordinates>121.506,25.0438,0</coordinates></Point></Placemark>
+<Placemark><name>4. 시먼딩 무지개 횡단보도</name><styleUrl>#d0</styleUrl><Point><coordinates>121.5078,25.0423,0</coordinates></Point></Placemark>
+<Placemark><name>5. 시먼홍러우</name><styleUrl>#d0</styleUrl><Point><coordinates>121.5068,25.042,0</coordinates></Point></Placemark>
+<Placemark><name>6. 보피랴오 거리·향토교육중심</name><styleUrl>#d0</styleUrl><Point><coordinates>121.5018,25.037,0</coordinates></Point></Placemark>
+<Placemark><name>7. 룽산쓰 (해질녘)</name><styleUrl>#d0</styleUrl><Point><coordinates>121.4999,25.0372,0</coordinates></Point></Placemark>
+<Placemark><name>11/11 (수) 도착 · 시먼·완화 동선</name><styleUrl>#d0</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.2328,25.0777,0 121.5085,25.0435,0 121.506,25.0438,0 121.5078,25.0423,0 121.5068,25.042,0 121.5018,25.037,0 121.4999,25.0372,0 121.5085,25.0435,0</coordinates></LineString></Placemark>
+</Folder>
+<Folder><name>11/12 (목) 미술관·고궁 → 시내</name>
+<Placemark><name>1. 호텔 출발 09:00</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5085,25.0435,0</coordinates></Point></Placemark>
+<Placemark><name>2. 타이베이 시립미술관 09:30</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5246,25.0726,0</coordinates></Point></Placemark>
+<Placemark><name>3. 고궁박물원 11:30 (점심·도슨트)</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5485,25.1024,0</coordinates></Point></Placemark>
+<Placemark><name>4. 중정기념당 15:30</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5218,25.0346,0</coordinates></Point></Placemark>
+<Placemark><name>5. 융캉제 간식 16:30</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5298,25.0325,0</coordinates></Point></Placemark>
+<Placemark><name>6. 딘타이펑 본점 저녁 18:00</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5299,25.0336,0</coordinates></Point></Placemark>
+<Placemark><name>11/12 (목) 미술관·고궁 → 시내 동선</name><styleUrl>#d1</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5085,25.0435,0 121.5246,25.0726,0 121.5485,25.1024,0 121.5218,25.0346,0 121.5298,25.0325,0 121.5299,25.0336,0 121.5085,25.0435,0</coordinates></LineString></Placemark>
+</Folder>
+<Folder><name>11/13 (금) 동물원·마오콩·101</name>
+<Placemark><name>1. 호텔 출발</name><styleUrl>#d2</styleUrl><Point><coordinates>121.5085,25.0435,0</coordinates></Point></Placemark>
+<Placemark><name>2. 타이베이 시립동물원 09:00</name><styleUrl>#d2</styleUrl><Point><coordinates>121.581,24.9983,0</coordinates></Point></Placemark>
+<Placemark><name>3. 마오콩 곤돌라 동물원역</name><styleUrl>#d2</styleUrl><Point><coordinates>121.5762,24.9958,0</coordinates></Point></Placemark>
+<Placemark><name>4. 마오콩역 · 찻집거리</name><styleUrl>#d2</styleUrl><Point><coordinates>121.588,24.9681,0</coordinates></Point></Placemark>
+<Placemark><name>5. 타이베이101 (일몰·야경·저녁)</name><styleUrl>#d2</styleUrl><Point><coordinates>121.5645,25.034,0</coordinates></Point></Placemark>
+<Placemark><name>11/13 (금) 동물원·마오콩·101 동선</name><styleUrl>#d2</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5085,25.0435,0 121.581,24.9983,0 121.5762,24.9958,0 121.588,24.9681,0 121.5645,25.034,0 121.5085,25.0435,0</coordinates></LineString></Placemark>
+</Folder>
+<Folder><name>11/14 (토) 예스진지 + 까르푸</name>
+<Placemark><name>1. 호텔 (투어 출발 시먼역)</name><styleUrl>#d3</styleUrl><Point><coordinates>121.5085,25.0435,0</coordinates></Point></Placemark>
+<Placemark><name>2. 예류지질공원</name><styleUrl>#d3</styleUrl><Point><coordinates>121.6905,25.2058,0</coordinates></Point></Placemark>
+<Placemark><name>3. 스펀 풍등 날리기</name><styleUrl>#d3</styleUrl><Point><coordinates>121.7756,25.0418,0</coordinates></Point></Placemark>
+<Placemark><name>4. 황금박물관 (진과스)</name><styleUrl>#d3</styleUrl><Point><coordinates>121.8597,25.1083,0</coordinates></Point></Placemark>
+<Placemark><name>5. 지우펀 야경</name><styleUrl>#d3</styleUrl><Point><coordinates>121.8448,25.1094,0</coordinates></Point></Placemark>
+<Placemark><name>6. 까르푸 구이린점 (기념품)</name><styleUrl>#d3</styleUrl><Point><coordinates>121.5035,25.0381,0</coordinates></Point></Placemark>
+<Placemark><name>11/14 (토) 예스진지 + 까르푸 동선</name><styleUrl>#d3</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5085,25.0435,0 121.6905,25.2058,0 121.7756,25.0418,0 121.8597,25.1083,0 121.8448,25.1094,0 121.5035,25.0381,0 121.5085,25.0435,0</coordinates></LineString></Placemark>
+</Folder>
+<Folder><name>11/15 (일) 출국</name>
+<Placemark><name>1. 호텔 10:00 출발</name><styleUrl>#d4</styleUrl><Point><coordinates>121.5085,25.0435,0</coordinates></Point></Placemark>
+<Placemark><name>2. 도원공항 제1터미널 (13:25 출발)</name><styleUrl>#d4</styleUrl><Point><coordinates>121.2328,25.0777,0</coordinates></Point></Placemark>
+<Placemark><name>11/15 (일) 출국 동선</name><styleUrl>#d4</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5085,25.0435,0 121.2328,25.0777,0</coordinates></LineString></Placemark>
+</Folder>
+</Document>
+</kml>
