@@ -9,13 +9,14 @@
 <Style id="d4"><IconStyle><color>ffb0279c</color></IconStyle><LineStyle><color>ffb0279c</color><width>4</width></LineStyle></Style>
 <Folder><name>11/11 (수) 도착 · 시먼·완화</name>
 <Placemark><name>1. 도원국제공항 12:25 도착 → 픽업차량</name><description>차로 약 40분</description><styleUrl>#d0</styleUrl><Point><coordinates>121.2328,25.0777,0</coordinates></Point></Placemark>
-<Placemark><name>2. 호텔: 솔라리아 니시테츠 시먼 (중화로 1단 88)</name><description>14:00 짐 맡기기. 14:15 지아펀 훠궈 점심, 우유도넛 (가게 위치는 구글 지도에서 확인)</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
-<Placemark><name>3. 보피랴오 거리·향토교육중심 15:55</name><description>블루라인 시먼 → 룽산쓰 1정거장. 17시 마감</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5018,25.037,0</coordinates></Point></Placemark>
-<Placemark><name>4. 룽산쓰 16:50</name><description>해 질 녘</description><styleUrl>#d0</styleUrl><Point><coordinates>121.4999,25.0372,0</coordinates></Point></Placemark>
-<Placemark><name>5. 까르푸 구이린점 17:40</name><description>걸어서 약 10분. 돌아갈 때는 택시 약 5분</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5035,25.0381,0</coordinates></Point></Placemark>
-<Placemark><name>6. 무지개 횡단보도 18:45</name><description>시먼딩 밤 구경</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5078,25.0423,0</coordinates></Point></Placemark>
-<Placemark><name>7. 시먼홍러우</name><description>19:30 철판구이 저녁 (가게 위치 확인)</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5068,25.042,0</coordinates></Point></Placemark>
-<Placemark><name>11/11 (수) 도착 · 시먼·완화 동선</name><styleUrl>#d0</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.2328,25.0777,0 121.5088,25.045,0 121.5018,25.037,0 121.4999,25.0372,0 121.5035,25.0381,0 121.5078,25.0423,0 121.5068,25.042,0 121.5088,25.045,0</coordinates></LineString></Placemark>
+<Placemark><name>2. 호텔: 솔라리아 니시테츠 시먼 (중화로 1단 88)</name><description>14:00 짐 맡기기</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>3. 지아펀 타이베이 시먼점 (훠궈) 14:15</name><description>한중제 50항 2호 2층. 걸어서 약 5분. 점심 후 우유도넛</description><styleUrl>#d0</styleUrl><Point><coordinates>121.50674,25.04402,0</coordinates></Point></Placemark>
+<Placemark><name>4. 보피랴오 거리·향토교육중심 15:55</name><description>블루라인 시먼 → 룽산쓰 1정거장. 17시 마감</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5018,25.037,0</coordinates></Point></Placemark>
+<Placemark><name>5. 룽산쓰 16:50</name><description>해 질 녘</description><styleUrl>#d0</styleUrl><Point><coordinates>121.4999,25.0372,0</coordinates></Point></Placemark>
+<Placemark><name>6. 까르푸 구이린점 17:40</name><description>걸어서 약 10분. 돌아갈 때는 택시 약 5분</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5035,25.0381,0</coordinates></Point></Placemark>
+<Placemark><name>7. 무지개 횡단보도 18:45</name><description>시먼딩 밤 구경</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5078,25.0423,0</coordinates></Point></Placemark>
+<Placemark><name>8. 시먼홍러우</name><description>19:30 철판구이 저녁 (가게 위치 확인)</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5068,25.042,0</coordinates></Point></Placemark>
+<Placemark><name>11/11 (수) 도착 · 시먼·완화 동선</name><styleUrl>#d0</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.2328,25.0777,0 121.5088,25.045,0 121.50674,25.04402,0 121.5018,25.037,0 121.4999,25.0372,0 121.5035,25.0381,0 121.5078,25.0423,0 121.5068,25.042,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
 <Folder><name>11/12 (목) 동물원 · 펑리수 · 101</name>
 <Placemark><name>1. 호텔</name><description>08:30 출발. 블루라인 → 중샤오푸싱 → 브라운라인, 약 45분</description><styleUrl>#d1</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
