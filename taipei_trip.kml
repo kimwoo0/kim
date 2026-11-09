@@ -36,9 +36,9 @@
 </Folder>
 <Folder><name>11/14 (토) 소반베이커리 · 시립미술관 · 딘타이펑</name>
 <Placemark><name>1. 호텔</name><description>08:30 출발. 블루라인 Ximen → Banqiao (Dingpu 방면), 약 15분</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
-<Placemark><name>2. 호텔</name><description>09:30 호텔에 빵 두기</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
-<Placemark><name>3. 타이베이 시립미술관 10:10</name><description>블루라인 Ximen → Taipei Main → 레드라인 Yuanshan (Tamsui 방면), 약 30분</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5246,25.0726,0</coordinates></Point></Placemark>
-<Placemark><name>4. 딘타이펑 신생점 12:10</name><description>레드라인 Yuanshan → Dongmen (Xiangshan 방면) 직통. 번호표 먼저</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5325,25.0335,0</coordinates></Point></Placemark>
+<Placemark><name>2. 호텔</name><description>08:30 출발 → 09:00 소반베이커리(小潘蛋糕坊, 추가 장소 레이어) → 09:45 호텔에 빵 두기</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>3. 타이베이 시립미술관 10:25</name><description>블루라인 Ximen → Taipei Main → 레드라인 Yuanshan (Tamsui 방면), 약 30분</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5246,25.0726,0</coordinates></Point></Placemark>
+<Placemark><name>4. 딘타이펑 신생점 12:25</name><description>레드라인 Yuanshan → Dongmen (Xiangshan 방면) 직통. 번호표 먼저</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5325,25.0335,0</coordinates></Point></Placemark>
 <Placemark><name>5. 융캉제 14:00</name><description>누가크래커, 50란, 망고빙수</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5298,25.0325,0</coordinates></Point></Placemark>
 <Placemark><name>6. 중정기념당 15:10</name><description>16시 근위병 교대식</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5218,25.0346,0</coordinates></Point></Placemark>
 <Placemark><name>7. 라오산둥 우육면 18:00</name><description>16:15 호텔에서 쉰 뒤 저녁. 완녠빌딩 지하 1층</description><styleUrl>#d3</styleUrl><Point><coordinates>121.506,25.0438,0</coordinates></Point></Placemark>
