@@ -15,7 +15,7 @@
 <Placemark><name>5. 룽산쓰 16:50</name><description>해 질 녘</description><styleUrl>#d0</styleUrl><Point><coordinates>121.4999,25.0372,0</coordinates></Point></Placemark>
 <Placemark><name>6. 까르푸 구이린점 17:40</name><description>걸어서 약 10분. 돌아갈 때는 택시 약 5분</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5035,25.0381,0</coordinates></Point></Placemark>
 <Placemark><name>7. 무지개 횡단보도 18:45</name><description>시먼딩 밤 구경</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5078,25.0423,0</coordinates></Point></Placemark>
-<Placemark><name>8. 시먼홍러우</name><description>19:30 철판구이 저녁 (가게 위치 확인)</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5068,25.042,0</coordinates></Point></Placemark>
+<Placemark><name>8. 시먼홍러우</name><description>19:30 근래철판구이 저녁 (건물 지하 1층, 위치 확인)</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5068,25.042,0</coordinates></Point></Placemark>
 <Placemark><name>11/11 (수) 도착 · 시먼·완화 동선</name><styleUrl>#d0</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.2328,25.0777,0 121.5088,25.045,0 121.50674,25.04402,0 121.5018,25.037,0 121.4999,25.0372,0 121.5035,25.0381,0 121.5078,25.0423,0 121.5068,25.042,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
 <Folder><name>11/12 (목) 동물원 · 펑리수 · 101</name>
