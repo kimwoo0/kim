@@ -44,7 +44,7 @@
 <Placemark><name>11/14 (토) 딘타이펑 · 융캉제 · 중정기념당 동선</name><styleUrl>#d3</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.5325,25.0335,0 121.5298,25.0325,0 121.5218,25.0346,0 121.506,25.0438,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
 <Folder><name>11/15 (일) 출국</name>
-<Placemark><name>1. 호텔</name><description>08:30 조식·체크아웃. 10:00 택시 출발 (약 45분)</description><styleUrl>#d4</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>1. 호텔</name><description>08:30 조식·체크아웃. 10:00 샌딩 차량 출발 (약 45분)</description><styleUrl>#d4</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
 <Placemark><name>2. 도원국제공항 10:45 → 13:25 출발</name><description></description><styleUrl>#d4</styleUrl><Point><coordinates>121.2328,25.0777,0</coordinates></Point></Placemark>
 <Placemark><name>11/15 (일) 출국 동선</name><styleUrl>#d4</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.2328,25.0777,0</coordinates></LineString></Placemark>
 </Folder>
