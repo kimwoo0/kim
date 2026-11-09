@@ -13,10 +13,9 @@
 <Placemark><name>3. 지아펀 타이베이 시먼점 (훠궈) 14:15</name><description>한중제 50항 2호 2층. 걸어서 약 5분. 점심 후 우유도넛</description><styleUrl>#d0</styleUrl><Point><coordinates>121.50674,25.04402,0</coordinates></Point></Placemark>
 <Placemark><name>4. 보피랴오 거리·향토교육중심 15:55</name><description>블루라인 시먼 → 룽산쓰 1정거장. 17시 마감</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5018,25.037,0</coordinates></Point></Placemark>
 <Placemark><name>5. 룽산쓰 16:50</name><description>해 질 녘</description><styleUrl>#d0</styleUrl><Point><coordinates>121.4999,25.0372,0</coordinates></Point></Placemark>
-<Placemark><name>6. 까르푸 구이린점 17:40</name><description>걸어서 약 10분. 돌아갈 때는 택시 약 5분</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5035,25.0381,0</coordinates></Point></Placemark>
-<Placemark><name>7. 무지개 횡단보도 18:45</name><description>시먼딩 밤 구경</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5078,25.0423,0</coordinates></Point></Placemark>
-<Placemark><name>8. 시먼홍러우</name><description>19:30 근래철판구이 저녁 (건물 지하 1층, 위치 확인)</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5068,25.042,0</coordinates></Point></Placemark>
-<Placemark><name>11/11 (수) 도착 · 시먼·완화 동선</name><styleUrl>#d0</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.2328,25.0777,0 121.5088,25.045,0 121.50674,25.04402,0 121.5018,25.037,0 121.4999,25.0372,0 121.5035,25.0381,0 121.5078,25.0423,0 121.5068,25.042,0 121.5088,25.045,0</coordinates></LineString></Placemark>
+<Placemark><name>6. 무지개 횡단보도 18:45</name><description>시먼딩 밤 구경</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5078,25.0423,0</coordinates></Point></Placemark>
+<Placemark><name>7. 시먼홍러우</name><description>19:30 근래철판구이 저녁 (건물 지하 1층, 위치 확인)</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5068,25.042,0</coordinates></Point></Placemark>
+<Placemark><name>11/11 (수) 도착 · 시먼·완화 동선</name><styleUrl>#d0</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.2328,25.0777,0 121.5088,25.045,0 121.50674,25.04402,0 121.5018,25.037,0 121.4999,25.0372,0 121.5078,25.0423,0 121.5068,25.042,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
 <Folder><name>11/12 (목) 동물원 · 펑리수 · 101</name>
 <Placemark><name>1. 호텔</name><description>08:30 출발. 블루라인 → 중샤오푸싱 → 브라운라인, 약 45분</description><styleUrl>#d1</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
@@ -37,14 +36,13 @@
 </Folder>
 <Folder><name>11/14 (토) 소반베이커리 · 시립미술관 · 딘타이펑</name>
 <Placemark><name>1. 호텔</name><description>08:30 출발. 블루라인 Ximen → Banqiao (Dingpu 방면), 약 15분</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
-<Placemark><name>2. 소반베이커리 (반차오역 근처) 08:45</name><description>핀은 반차오역 위치예요. 가게 정확한 위치 확인</description><styleUrl>#d3</styleUrl><Point><coordinates>121.4627,25.0137,0</coordinates></Point></Placemark>
-<Placemark><name>3. 호텔</name><description>09:30 호텔에 빵 두기</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
-<Placemark><name>4. 타이베이 시립미술관 10:10</name><description>블루라인 Ximen → Taipei Main → 레드라인 Yuanshan (Tamsui 방면), 약 30분</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5246,25.0726,0</coordinates></Point></Placemark>
-<Placemark><name>5. 딘타이펑 신생점 12:10</name><description>레드라인 Yuanshan → Dongmen (Xiangshan 방면) 직통. 번호표 먼저</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5325,25.0335,0</coordinates></Point></Placemark>
-<Placemark><name>6. 융캉제 14:00</name><description>누가크래커, 50란, 망고빙수</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5298,25.0325,0</coordinates></Point></Placemark>
-<Placemark><name>7. 중정기념당 15:10</name><description>16시 근위병 교대식</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5218,25.0346,0</coordinates></Point></Placemark>
-<Placemark><name>8. 라오산둥 우육면 18:00</name><description>16:15 호텔에서 쉰 뒤 저녁. 완녠빌딩 지하 1층</description><styleUrl>#d3</styleUrl><Point><coordinates>121.506,25.0438,0</coordinates></Point></Placemark>
-<Placemark><name>11/14 (토) 소반베이커리 · 시립미술관 · 딘타이펑 동선</name><styleUrl>#d3</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.4627,25.0137,0 121.5088,25.045,0 121.5246,25.0726,0 121.5325,25.0335,0 121.5298,25.0325,0 121.5218,25.0346,0 121.506,25.0438,0 121.5088,25.045,0</coordinates></LineString></Placemark>
+<Placemark><name>2. 호텔</name><description>09:30 호텔에 빵 두기</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>3. 타이베이 시립미술관 10:10</name><description>블루라인 Ximen → Taipei Main → 레드라인 Yuanshan (Tamsui 방면), 약 30분</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5246,25.0726,0</coordinates></Point></Placemark>
+<Placemark><name>4. 딘타이펑 신생점 12:10</name><description>레드라인 Yuanshan → Dongmen (Xiangshan 방면) 직통. 번호표 먼저</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5325,25.0335,0</coordinates></Point></Placemark>
+<Placemark><name>5. 융캉제 14:00</name><description>누가크래커, 50란, 망고빙수</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5298,25.0325,0</coordinates></Point></Placemark>
+<Placemark><name>6. 중정기념당 15:10</name><description>16시 근위병 교대식</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5218,25.0346,0</coordinates></Point></Placemark>
+<Placemark><name>7. 라오산둥 우육면 18:00</name><description>16:15 호텔에서 쉰 뒤 저녁. 완녠빌딩 지하 1층</description><styleUrl>#d3</styleUrl><Point><coordinates>121.506,25.0438,0</coordinates></Point></Placemark>
+<Placemark><name>11/14 (토) 소반베이커리 · 시립미술관 · 딘타이펑 동선</name><styleUrl>#d3</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.5088,25.045,0 121.5246,25.0726,0 121.5325,25.0335,0 121.5298,25.0325,0 121.5218,25.0346,0 121.506,25.0438,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
 <Folder><name>11/15 (일) 출국</name>
 <Placemark><name>1. 호텔</name><description>08:30 조식·체크아웃. 10:00 샌딩 차량 출발 (약 45분)</description><styleUrl>#d4</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
