@@ -3,50 +3,54 @@
 <Document>
 <name>대만 여행 11/11-11/15</name>
 <Style id="d0"><IconStyle><color>ff3d7dff</color></IconStyle><LineStyle><color>ff3d7dff</color><width>4</width></LineStyle></Style>
-<Style id="d1"><IconStyle><color>ff2fa5ff</color></IconStyle><LineStyle><color>ff2fa5ff</color><width>4</width></LineStyle></Style>
-<Style id="d2"><IconStyle><color>ff47b84c</color></IconStyle><LineStyle><color>ff47b84c</color><width>4</width></LineStyle></Style>
-<Style id="d3"><IconStyle><color>fff3963f</color></IconStyle><LineStyle><color>fff3963f</color><width>4</width></LineStyle></Style>
+<Style id="d1"><IconStyle><color>ff47b84c</color></IconStyle><LineStyle><color>ff47b84c</color><width>4</width></LineStyle></Style>
+<Style id="d2"><IconStyle><color>fff3963f</color></IconStyle><LineStyle><color>fff3963f</color><width>4</width></LineStyle></Style>
+<Style id="d3"><IconStyle><color>ff2fa5ff</color></IconStyle><LineStyle><color>ff2fa5ff</color><width>4</width></LineStyle></Style>
 <Style id="d4"><IconStyle><color>ffb0279c</color></IconStyle><LineStyle><color>ffb0279c</color><width>4</width></LineStyle></Style>
 <Folder><name>11/11 (수) 도착 · 시먼·완화</name>
-<Placemark><name>1. 도원공항 제1터미널 (12:25 도착)</name><styleUrl>#d0</styleUrl><Point><coordinates>121.2328,25.0777,0</coordinates></Point></Placemark>
-<Placemark><name>2. 호텔: 솔라리아 니시테츠 시먼</name><styleUrl>#d0</styleUrl><Point><coordinates>121.5085,25.0435,0</coordinates></Point></Placemark>
-<Placemark><name>3. 라오산둥 우육면 (늦은 점심)</name><styleUrl>#d0</styleUrl><Point><coordinates>121.506,25.0438,0</coordinates></Point></Placemark>
-<Placemark><name>4. 시먼딩 무지개 횡단보도</name><styleUrl>#d0</styleUrl><Point><coordinates>121.5078,25.0423,0</coordinates></Point></Placemark>
-<Placemark><name>5. 시먼홍러우</name><styleUrl>#d0</styleUrl><Point><coordinates>121.5068,25.042,0</coordinates></Point></Placemark>
-<Placemark><name>6. 보피랴오 거리·향토교육중심</name><styleUrl>#d0</styleUrl><Point><coordinates>121.5018,25.037,0</coordinates></Point></Placemark>
-<Placemark><name>7. 룽산쓰 (해질녘)</name><styleUrl>#d0</styleUrl><Point><coordinates>121.4999,25.0372,0</coordinates></Point></Placemark>
-<Placemark><name>11/11 (수) 도착 · 시먼·완화 동선</name><styleUrl>#d0</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.2328,25.0777,0 121.5085,25.0435,0 121.506,25.0438,0 121.5078,25.0423,0 121.5068,25.042,0 121.5018,25.037,0 121.4999,25.0372,0 121.5085,25.0435,0</coordinates></LineString></Placemark>
+<Placemark><name>1. 도원국제공항 12:25 도착 → 픽업차량</name><description>차로 약 40분</description><styleUrl>#d0</styleUrl><Point><coordinates>121.2328,25.0777,0</coordinates></Point></Placemark>
+<Placemark><name>2. 호텔: 솔라리아 니시테츠 시먼 (중화로 1단 88)</name><description>14:00 짐 맡기기. 14:15 지아펀 훠궈 점심, 우유도넛 (가게 위치는 구글 지도에서 확인)</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>3. 보피랴오 거리·향토교육중심 15:55</name><description>블루라인 시먼 → 룽산쓰 1정거장. 17시 마감</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5018,25.037,0</coordinates></Point></Placemark>
+<Placemark><name>4. 룽산쓰 16:50</name><description>해 질 녘</description><styleUrl>#d0</styleUrl><Point><coordinates>121.4999,25.0372,0</coordinates></Point></Placemark>
+<Placemark><name>5. 까르푸 구이린점 17:40</name><description>걸어서 약 10분. 돌아갈 때는 택시 약 5분</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5035,25.0381,0</coordinates></Point></Placemark>
+<Placemark><name>6. 무지개 횡단보도 18:45</name><description>시먼딩 밤 구경</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5078,25.0423,0</coordinates></Point></Placemark>
+<Placemark><name>7. 시먼홍러우</name><description>19:30 철판구이 저녁 (가게 위치 확인)</description><styleUrl>#d0</styleUrl><Point><coordinates>121.5068,25.042,0</coordinates></Point></Placemark>
+<Placemark><name>11/11 (수) 도착 · 시먼·완화 동선</name><styleUrl>#d0</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.2328,25.0777,0 121.5088,25.045,0 121.5018,25.037,0 121.4999,25.0372,0 121.5035,25.0381,0 121.5078,25.0423,0 121.5068,25.042,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
-<Folder><name>11/12 (목) 미술관·고궁 → 시내</name>
-<Placemark><name>1. 호텔 출발 09:00</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5085,25.0435,0</coordinates></Point></Placemark>
-<Placemark><name>2. 타이베이 시립미술관 09:30</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5246,25.0726,0</coordinates></Point></Placemark>
-<Placemark><name>3. 고궁박물원 11:30 (점심·도슨트)</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5485,25.1024,0</coordinates></Point></Placemark>
-<Placemark><name>4. 중정기념당 15:30</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5218,25.0346,0</coordinates></Point></Placemark>
-<Placemark><name>5. 융캉제 간식 16:30</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5298,25.0325,0</coordinates></Point></Placemark>
-<Placemark><name>6. 딘타이펑 본점 저녁 18:00</name><styleUrl>#d1</styleUrl><Point><coordinates>121.5299,25.0336,0</coordinates></Point></Placemark>
-<Placemark><name>11/12 (목) 미술관·고궁 → 시내 동선</name><styleUrl>#d1</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5085,25.0435,0 121.5246,25.0726,0 121.5485,25.1024,0 121.5218,25.0346,0 121.5298,25.0325,0 121.5299,25.0336,0 121.5085,25.0435,0</coordinates></LineString></Placemark>
+<Folder><name>11/12 (목) 동물원 · 펑리수 · 101</name>
+<Placemark><name>1. 호텔</name><description>08:30 출발. 블루라인 → 중샤오푸싱 → 브라운라인, 약 45분</description><styleUrl>#d1</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>2. 타이베이 시립동물원 09:15</name><description>판다관 먼저, 점심</description><styleUrl>#d1</styleUrl><Point><coordinates>121.581,24.9983,0</coordinates></Point></Placemark>
+<Placemark><name>3. 치아더 펑리수 13:45</name><description>브라운라인 → 난징푸싱 → 그린라인 난징싼민, 약 35분</description><styleUrl>#d1</styleUrl><Point><coordinates>121.5615,25.0515,0</coordinates></Point></Placemark>
+<Placemark><name>4. 써니힐 (펑리수)</name><description>택시 약 10분</description><styleUrl>#d1</styleUrl><Point><coordinates>121.5585,25.0597,0</coordinates></Point></Placemark>
+<Placemark><name>5. 타이베이101 16:00</name><description>택시 약 15분. 전망대 일몰, 지하1층 푸드코트/키키 저녁</description><styleUrl>#d1</styleUrl><Point><coordinates>121.5645,25.034,0</coordinates></Point></Placemark>
+<Placemark><name>6. 호텔</name><description>레드라인 → 중정기념당 → 그린라인, 약 30분</description><styleUrl>#d1</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>11/12 (목) 동물원 · 펑리수 · 101 동선</name><styleUrl>#d1</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.581,24.9983,0 121.5615,25.0515,0 121.5585,25.0597,0 121.5645,25.034,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
-<Folder><name>11/13 (금) 동물원·마오콩·101</name>
-<Placemark><name>1. 호텔 출발</name><styleUrl>#d2</styleUrl><Point><coordinates>121.5085,25.0435,0</coordinates></Point></Placemark>
-<Placemark><name>2. 타이베이 시립동물원 09:00</name><styleUrl>#d2</styleUrl><Point><coordinates>121.581,24.9983,0</coordinates></Point></Placemark>
-<Placemark><name>3. 마오콩 곤돌라 동물원역</name><styleUrl>#d2</styleUrl><Point><coordinates>121.5762,24.9958,0</coordinates></Point></Placemark>
-<Placemark><name>4. 마오콩역 · 찻집거리</name><styleUrl>#d2</styleUrl><Point><coordinates>121.588,24.9681,0</coordinates></Point></Placemark>
-<Placemark><name>5. 타이베이101 (일몰·야경·저녁)</name><styleUrl>#d2</styleUrl><Point><coordinates>121.5645,25.034,0</coordinates></Point></Placemark>
-<Placemark><name>11/13 (금) 동물원·마오콩·101 동선</name><styleUrl>#d2</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5085,25.0435,0 121.581,24.9983,0 121.5762,24.9958,0 121.588,24.9681,0 121.5645,25.034,0 121.5085,25.0435,0</coordinates></LineString></Placemark>
+<Folder><name>11/13 (금) 예스진지 투어</name>
+<Placemark><name>1. 호텔</name><description>08:00 투어버스 출발 (시먼역 근처)</description><styleUrl>#d2</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>2. 예류지질공원 09:00</name><description></description><styleUrl>#d2</styleUrl><Point><coordinates>121.6905,25.2058,0</coordinates></Point></Placemark>
+<Placemark><name>3. 스펀 옛거리 · 풍등 11:00</name><description>점심</description><styleUrl>#d2</styleUrl><Point><coordinates>121.7756,25.0418,0</coordinates></Point></Placemark>
+<Placemark><name>4. 스펀폭포</name><description>투어 포함 여부 확인</description><styleUrl>#d2</styleUrl><Point><coordinates>121.7875,25.0485,0</coordinates></Point></Placemark>
+<Placemark><name>5. 진과스 황금박물관 13:30</name><description></description><styleUrl>#d2</styleUrl><Point><coordinates>121.8597,25.1083,0</coordinates></Point></Placemark>
+<Placemark><name>6. 지우펀 옛거리 15:00</name><description>야경, 저녁</description><styleUrl>#d2</styleUrl><Point><coordinates>121.8448,25.1094,0</coordinates></Point></Placemark>
+<Placemark><name>7. 호텔</name><description>19:00쯤 도착</description><styleUrl>#d2</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>11/13 (금) 예스진지 투어 동선</name><styleUrl>#d2</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.6905,25.2058,0 121.7756,25.0418,0 121.7875,25.0485,0 121.8597,25.1083,0 121.8448,25.1094,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
-<Folder><name>11/14 (토) 예스진지 + 까르푸</name>
-<Placemark><name>1. 호텔 (투어 출발 시먼역)</name><styleUrl>#d3</styleUrl><Point><coordinates>121.5085,25.0435,0</coordinates></Point></Placemark>
-<Placemark><name>2. 예류지질공원</name><styleUrl>#d3</styleUrl><Point><coordinates>121.6905,25.2058,0</coordinates></Point></Placemark>
-<Placemark><name>3. 스펀 풍등 날리기</name><styleUrl>#d3</styleUrl><Point><coordinates>121.7756,25.0418,0</coordinates></Point></Placemark>
-<Placemark><name>4. 황금박물관 (진과스)</name><styleUrl>#d3</styleUrl><Point><coordinates>121.8597,25.1083,0</coordinates></Point></Placemark>
-<Placemark><name>5. 지우펀 야경</name><styleUrl>#d3</styleUrl><Point><coordinates>121.8448,25.1094,0</coordinates></Point></Placemark>
-<Placemark><name>6. 까르푸 구이린점 (기념품)</name><styleUrl>#d3</styleUrl><Point><coordinates>121.5035,25.0381,0</coordinates></Point></Placemark>
-<Placemark><name>11/14 (토) 예스진지 + 까르푸 동선</name><styleUrl>#d3</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5085,25.0435,0 121.6905,25.2058,0 121.7756,25.0418,0 121.8597,25.1083,0 121.8448,25.1094,0 121.5035,25.0381,0 121.5085,25.0435,0</coordinates></LineString></Placemark>
+<Folder><name>11/14 (토) 고궁 · 딘타이펑 · 시내</name>
+<Placemark><name>1. 호텔</name><description>09:00 출발. 블루라인 → 타이베이역 → 레드라인 스린 → 버스, 약 45분</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>2. 고궁박물원 09:45</name><description>도슨트 투어. 토요일이라 붐빔</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5485,25.1024,0</coordinates></Point></Placemark>
+<Placemark><name>3. 딘타이펑 신생점 13:20</name><description>버스+MRT 약 50분. 번호표 먼저. 송로버섯 샤오롱바오, 갈비튀김 계란볶음밥</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5325,25.0335,0</coordinates></Point></Placemark>
+<Placemark><name>4. 융캉제 14:30</name><description>누가크래커, 50란, 망고빙수</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5298,25.0325,0</coordinates></Point></Placemark>
+<Placemark><name>5. 중정기념당 15:40</name><description>16시 근위병 교대식. 근처 소반베이커리 중정점</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5218,25.0346,0</coordinates></Point></Placemark>
+<Placemark><name>6. 라오산둥 우육면 18:00</name><description>그린라인 중정기념당 → 시먼 약 10분</description><styleUrl>#d3</styleUrl><Point><coordinates>121.506,25.0438,0</coordinates></Point></Placemark>
+<Placemark><name>11/14 (토) 고궁 · 딘타이펑 · 시내 동선</name><styleUrl>#d3</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.5485,25.1024,0 121.5325,25.0335,0 121.5298,25.0325,0 121.5218,25.0346,0 121.506,25.0438,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
-<Folder><name>11/15 (일) 출국</name>
-<Placemark><name>1. 호텔 10:00 출발</name><styleUrl>#d4</styleUrl><Point><coordinates>121.5085,25.0435,0</coordinates></Point></Placemark>
-<Placemark><name>2. 도원공항 제1터미널 (13:25 출발)</name><styleUrl>#d4</styleUrl><Point><coordinates>121.2328,25.0777,0</coordinates></Point></Placemark>
-<Placemark><name>11/15 (일) 출국 동선</name><styleUrl>#d4</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5085,25.0435,0 121.2328,25.0777,0</coordinates></LineString></Placemark>
+<Folder><name>11/15 (일) 철도박물관 → 출국</name>
+<Placemark><name>1. 호텔</name><description>08:30 조식·체크아웃, 짐 맡기기</description><styleUrl>#d4</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>2. 철도박물관 (철도부원구) 09:30</name><description>걸어서 약 10분</description><styleUrl>#d4</styleUrl><Point><coordinates>121.5115,25.049,0</coordinates></Point></Placemark>
+<Placemark><name>3. 호텔</name><description>10:30 픽업차량 출발</description><styleUrl>#d4</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>4. 도원국제공항 11:10 → 13:25 출발</name><description></description><styleUrl>#d4</styleUrl><Point><coordinates>121.2328,25.0777,0</coordinates></Point></Placemark>
+<Placemark><name>11/15 (일) 철도박물관 → 출국 동선</name><styleUrl>#d4</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.5115,25.049,0 121.5088,25.045,0 121.2328,25.0777,0</coordinates></LineString></Placemark>
 </Folder>
 </Document>
 </kml>
