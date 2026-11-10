@@ -27,12 +27,14 @@
 <Placemark><name>11/12 (목) 동물원 · 펑리수 · 101 동선</name><styleUrl>#d1</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.581,24.9983,0 121.5615,25.0515,0 121.5585,25.0597,0 121.5645,25.034,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
 <Folder><name>11/13 (금) 택시투어 · 예류와 스펀</name>
-<Placemark><name>1. 호텔</name><description>10:30 택시투어 출발 (8시간)</description><styleUrl>#d2</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
-<Placemark><name>2. 예류지질공원 11:30</name><description></description><styleUrl>#d2</styleUrl><Point><coordinates>121.6905,25.2058,0</coordinates></Point></Placemark>
-<Placemark><name>3. 스펀폭포 14:30</name><description>점심은 예류 항구에서 12:45</description><styleUrl>#d2</styleUrl><Point><coordinates>121.7875,25.0485,0</coordinates></Point></Placemark>
-<Placemark><name>4. 스펀 옛거리 · 풍등 15:45</name><description>해 질 녘 풍등</description><styleUrl>#d2</styleUrl><Point><coordinates>121.7756,25.0418,0</coordinates></Point></Placemark>
-<Placemark><name>5. 호텔</name><description>18:30 도착</description><styleUrl>#d2</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
-<Placemark><name>11/13 (금) 택시투어 · 예류와 스펀 동선</name><styleUrl>#d2</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.6905,25.2058,0 121.7875,25.0485,0 121.7756,25.0418,0 121.5088,25.045,0</coordinates></LineString></Placemark>
+<Placemark><name>1. 호텔</name><description>07:30 출발. 블루라인 Ximen → Shandao Temple (Taipei Nangang Exhibition Center 방면) 2정거장</description><styleUrl>#d2</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>2. 아침 · 푸항더우장 (阜杭豆漿) 07:45</name><description>화산시장 2층 · 善導寺역 5번 출구 · 대기 30분~1시간</description><styleUrl>#d2</styleUrl><Point><coordinates>121.52487,25.04428,0</coordinates></Point></Placemark>
+<Placemark><name>3. 호텔</name><description>10:30 택시투어 출발 (8시간)</description><styleUrl>#d2</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>4. 예류지질공원 11:30</name><description></description><styleUrl>#d2</styleUrl><Point><coordinates>121.6905,25.2058,0</coordinates></Point></Placemark>
+<Placemark><name>5. 스펀폭포 14:30</name><description>점심은 예류 항구에서 12:45</description><styleUrl>#d2</styleUrl><Point><coordinates>121.7875,25.0485,0</coordinates></Point></Placemark>
+<Placemark><name>6. 스펀 옛거리 · 풍등 15:45</name><description>해 질 녘 풍등</description><styleUrl>#d2</styleUrl><Point><coordinates>121.7756,25.0418,0</coordinates></Point></Placemark>
+<Placemark><name>7. 호텔</name><description>18:30 도착</description><styleUrl>#d2</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
+<Placemark><name>11/13 (금) 택시투어 · 예류와 스펀 동선</name><styleUrl>#d2</styleUrl><LineString><tessellate>1</tessellate><coordinates>121.5088,25.045,0 121.52487,25.04428,0 121.5088,25.045,0 121.6905,25.2058,0 121.7875,25.0485,0 121.7756,25.0418,0 121.5088,25.045,0</coordinates></LineString></Placemark>
 </Folder>
 <Folder><name>11/14 (토) 소반베이커리 · 시립미술관 · 딘타이펑</name>
 <Placemark><name>1. 호텔</name><description>08:30 출발. 블루라인 Ximen → Banqiao (Dingpu 방면) 약 15분 → 택시 약 5분</description><styleUrl>#d3</styleUrl><Point><coordinates>121.5088,25.045,0</coordinates></Point></Placemark>
