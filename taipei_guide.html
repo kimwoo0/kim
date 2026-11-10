@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<title>타이베이 가족여행</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Sans+TC:wght@500;700&display=swap">
+<style>
+/* Layout: sticky header with day tabs; each day is a vertical timeline — stops as rows, moves as indented rail segments colored by Taipei Metro line */
+:root{
+  --bg:#f5f6f3; --surface:#ffffff; --ink:#1d2421; --muted:#5f6b66; --line:#dde2dd;
+  --accent:#c2362b; --accent-soft:#fbe9e6; --rail:#c9d0cb; --chip:#eef1ee;
+  --ok:#2f7d4f;
+  --BL:#0070bd; --R:#e3002c; --G:#008659; --BR:#b07b22; --O:#d99a00; --BUS:#55606a;
+  --f-body:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-zh:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121614; --surface:#1a201d; --ink:#e7ece9; --muted:#9aa7a1; --line:#2b3430;
+  --accent:#ff6b5c; --accent-soft:#3a1f1c; --rail:#3a4540; --chip:#232b27; --ok:#6cc792;
+  --BL:#3d9be0; --R:#ff4d64; --G:#2fb37e; --BR:#d9a24a; --O:#f5bf3a; --BUS:#94a0aa;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614; --surface:#1a201d; --ink:#e7ece9; --muted:#9aa7a1; --line:#2b3430;
+  --accent:#ff6b5c; --accent-soft:#3a1f1c; --rail:#3a4540; --chip:#232b27; --ok:#6cc792;
+  --BL:#3d9be0; --R:#ff4d64; --G:#2fb37e; --BR:#d9a24a; --O:#f5bf3a; --BUS:#94a0aa;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.head{padding-block:12px 0;display:flex;flex-direction:column;gap:8px}
+.brand{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h1{font-size:19px;margin:0;font-weight:700;letter-spacing:-.01em}
+h1 span{color:var(--accent)}
+.flights{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-inline:-4px;padding-inline:4px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:8px 10px 10px;border-bottom:3px solid transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.tab b{font-family:var(--f-mono);font-size:13px;font-weight:600}
+.tab small{font-size:12px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.today{display:inline-block;font-size:10px;background:var(--accent);color:#fff;border-radius:4px;padding:0 4px;margin-top:2px}
+main{padding-block:18px 48px}
+.dayhead{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.dayhead h2{margin:0;font-size:22px;text-wrap:balance}
+.dayhead .meta{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:12.5px;background:var(--chip);border-radius:999px;padding:3px 10px;color:var(--muted)}
+.pill strong{color:var(--ink);font-family:var(--f-mono);font-weight:600}
+.daynote{font-size:13.5px;color:var(--muted);margin:0}
+/* timeline */
+.tl{display:flex;flex-direction:column}
+.stop{display:grid;grid-template-columns:50px 1fr;gap:10px;padding-block:10px}
+.time{font-family:var(--f-mono);font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;padding-top:2px;color:var(--ink)}
+.card{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.card.optional{border-style:dashed}
+.ko{font-weight:600;font-size:15.5px}
+.zhrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.zh{font-family:var(--f-zh);font-size:15px;font-weight:500;min-width:0;overflow-wrap:anywhere;user-select:all}
+.note{font-size:13px;color:var(--muted);margin:0}
+.acts{display:flex;gap:6px;flex-wrap:wrap}
+.btn{font:inherit;font-size:12.5px;font-weight:600;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:7px;padding:5px 10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:4px;min-height:32px}
+.btn.copy{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.btn.done{border-color:var(--ok);color:var(--ok);background:transparent}
+.move{display:grid;grid-template-columns:50px 1fr;gap:10px}
+.move .railcol{display:flex;justify-content:center}
+.move .railcol i{width:0;border-left:2px dashed var(--rail);height:100%}
+.mv{min-width:0;display:flex;flex-direction:column;gap:5px;padding:6px 0 6px 2px;font-size:13px;color:var(--muted)}
+.mvtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.mode{font-size:11.5px;font-weight:700;letter-spacing:.04em;border-radius:4px;padding:1px 6px;background:var(--chip);color:var(--ink)}
+.dur{font-family:var(--f-mono);font-weight:600;color:var(--ink);font-size:12.5px}
+.seg{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:6px}
+.path{min-width:0}
+.ln{font-family:var(--f-mono);font-size:11px;font-weight:600;color:#fff;border-radius:4px;padding:1px 6px}
+.st{font-family:var(--f-zh);color:var(--ink);font-size:13.5px}
+.arrow{color:var(--muted)}
+.st em{font-style:normal;font-family:var(--f-body);font-size:12px;color:var(--muted)}
+.dir{font-size:12.5px;color:var(--muted);padding-left:34px;margin-top:-2px}
+.dir b{color:var(--ink);font-weight:600}
+dl.info{margin:2px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:13px;border-top:1px solid var(--line);padding-top:8px}
+dl.info dt{font-weight:600;color:var(--accent);white-space:nowrap}
+dl.info dd{margin:0;min-width:0}
+h3.bfg{font-size:15px;margin:18px 0 8px}
+.bflist{display:flex;flex-direction:column;gap:10px}
+.pick{font-size:11px;font-weight:700;color:#fff;background:var(--accent);border-radius:4px;padding:1px 6px;vertical-align:2px}
+/* info */
+section.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+section.box h3{margin:0;font-size:16px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.check input{width:18px;height:18px;margin-top:2px;accent-color:var(--accent);flex:0 0 auto}
+.check small{display:block;color:var(--muted);font-size:12.5px}
+.check input:checked + span{color:var(--muted);text-decoration:line-through}
+.show{font-family:var(--f-zh);font-size:22px;font-weight:700;line-height:1.4;background:var(--bg);border-radius:8px;padding:12px;overflow-wrap:anywhere}
+.phr{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border-top:1px solid var(--line);padding-top:8px}
+.phr:first-of-type{border-top:0;padding-top:0}
+.phr .zh{font-size:16px}
+.phr .k{font-size:12.5px;color:var(--muted)}
+.conv{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-family:var(--f-mono)}
+.conv input{font:inherit;width:120px;padding:8px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}
+.conv output{font-size:18px;font-weight:600}
+.tel{font-family:var(--f-mono);font-weight:600}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;font-size:13.5px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20;max-width:calc(100% - 32px)}
+.toast.on{opacity:1}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap head">
+    <div class="brand">
+      <h1>타이베이 <span>가족여행</span></h1>
+      <div class="flights">BX571 11/11 10:50 → BX572 11/15 13:25</div>
+    </div>
+    <nav class="tabs" id="tabs" role="tablist" aria-label="날짜 선택"></nav>
+  </div>
+</header>
+<main class="wrap" id="main"></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const HOTEL_ZH='索拉利亞西鐵飯店 台北西門';
+const HOTEL_ADDR='台北市中華路一段88號';
+const DAYS=[
+{id:'d1',date:'11/11',dow:'수',day:11,title:'도착 · 시먼과 완화',note:'점심을 먹고 17시에 문 닫는 보피랴오부터 가요. 시먼딩은 밤에 구경해요.',todo:[
+ ['공항에서 이지카드 3장 수령','입국장에서 픽업 기사를 만나기 전에 · 예약 바우처와 수령 카운터 위치 확인'],
+ ['101 전망대 티켓 예매 (내일 11/12 사용)','내일 날씨 예보를 보고 예매 · 일몰을 보려면 16:00~16:30 입장']
+],items:[
+ {t:'12:25',ko:'도원공항 도착',zh:'桃園國際機場',note:'BX571 · 입국심사 후 픽업 기사 만나기 · 터미널은 e-티켓으로 확인'},
+ {mv:'car',min:40,txt:'픽업차량으로 호텔까지'},
+ {t:'14:00',ko:'호텔 · 짐 맡기기',zh:HOTEL_ZH,addr:HOTEL_ADDR,note:'체크인 15:00'},
+ {mv:'walk',min:5},
+ {t:'14:15',ko:'지아펀 훠궈 (점심)',zh:'台北市萬華區漢中街50巷2號2樓',label:'주소',note:'우유 마라훠궈 · 건물 2층 · ☎ +886 2 2388 6660 · 이용시간 제한 확인'},
+ {t:'15:30',ko:'우유도넛 · 자빈빙자 시먼딩점',zh:'佳賓餅家 西門町店',note:'포장해서 이동'},
+ {mv:'walk',min:15,txt:'약 1km · 덥거나 아이가 지치면 MRT 블루라인 Ximen → Longshan Temple (Dingpu 頂埔 방면) 1정거장'},
+ {t:'15:55',ko:'보피랴오 거리 · 향토교육중심',zh:'剝皮寮歷史街區',note:'향토교육중심은 17시 마감'},
+ {mv:'walk',min:3},
+ {t:'16:50',ko:'룽산쓰',zh:'艋舺龍山寺',note:'일몰 17시쯤'},
+ {mv:'walk',min:10},
+ {t:'17:40',ko:'까르푸 구이린점',zh:'家樂福 桂林店',q:'PROSPERITY PLAZA Guilin Store',note:'구글 지도 이름: PROSPERITY PLAZA Guilin Store · 24시간'},
+ {mv:'taxi',min:5,txt:'짐이 많으면 택시 (약 NT$100)'},
+ {t:'18:45',ko:'무지개 횡단보도 · 시먼홍러우',zh:'西門紅樓',note:'시먼딩 밤 구경'},
+ {mv:'walk',min:5},
+ {t:'19:30',ko:'근래철판구이 (저녁)',zh:'根萊鐵板燒',note:'건물 지하 1층 · 영업시간 확인 후 예약'}
+]},
+{id:'d2',date:'11/12',dow:'목',day:12,title:'동물원 · 펑리수 · 101',note:'101 전망대에서 일몰을 보려면 16시까지 도착하세요.',items:[
+ {t:'08:30',ko:'호텔 출발',zh:HOTEL_ZH,addr:HOTEL_ADDR},
+ {mv:'mrt',min:45,segs:[['BL','西門','忠孝復興','南港展覽館'],['BR','忠孝復興','動物園','動物園']]},
+ {t:'09:15',ko:'타이베이 시립동물원',zh:'臺北市立動物園',note:'판다관 먼저 · 이지카드로 입장 · 동물원에서 점심'},
+ {mv:'mrt',min:35,segs:[['BR','動物園','南京復興','南港展覽館'],['G','南京復興','南京三民','松山']]},
+ {t:'13:45',ko:'치아더 펑리수',zh:'佳德糕餅',note:'난징싼민역 근처'},
+ {mv:'taxi',min:10},
+ {t:'14:30',ko:'써니힐 (펑리수)',zh:'微熱山丘 台北民生公園門市',addr:'台北市松山區民生東路五段36巷4弄1號1樓'},
+ {mv:'taxi',min:15},
+ {t:'16:00',ko:'타이베이101 전망대',zh:'台北101觀景台',note:'일몰 17시쯤 · 티켓은 전날 날씨 보고 예약'},
+ {t:'18:00',ko:'저녁 · 키키 레스토랑 (ATT 4 FUN점)',zh:'KiKi餐廳 ATT 4 FUN',note:'101 옆 쇼핑몰 · 걸어서 약 5분 · 대안: 101 지하 1층 푸드코트'},
+ {mv:'mrt',min:30,segs:[['R','台北101/世貿','中正紀念堂','淡水'],['G','中正紀念堂','西門','松山']]},
+ {t:'19:30',ko:'호텔 도착'}
+]},
+{id:'d3',date:'11/13',dow:'금',day:13,title:'택시투어 · 예류와 스펀',note:'8시간 택시투어 (10:30~18:30) 기준이에요. 아침은 호텔에서 여유 있게 먹고 출발해요.',items:[
+ {t:'10:30',ko:'호텔 앞 택시투어 출발',zh:HOTEL_ZH,addr:HOTEL_ADDR,note:'카시트 · 바람막이 · 우산'},
+ {mv:'car',min:60},
+ {t:'11:30',ko:'예류지질공원',zh:'野柳地質公園',note:'바위가 미끄러워요 · 빨간 선 밖으로 나가지 않기'},
+ {t:'12:45',ko:'점심 · 예류 항구 식당가',zh:'野柳漁港',note:'해산물 식당이 모여 있어요 · 기사님께 추천을 부탁해도 돼요'},
+ {mv:'car',min:60},
+ {t:'14:30',ko:'스펀폭포',zh:'十分瀑布',note:'주차장에서 걸어서 약 15분 · 무료'},
+ {mv:'car',min:10},
+ {t:'15:45',ko:'스펀 옛거리 · 풍등 날리기',zh:'十分老街',note:'해 질 녘(17시쯤) 풍등이 예뻐요 · 기찻길 위에서 날려요 · 기차가 오면 비켜요'},
+ {mv:'car',min:60},
+ {t:'18:30',ko:'호텔 도착 · 저녁은 시먼에서'},
+ {t:'+2시간',ko:'지우펀 (선택)',zh:'九份老街',opt:true,note:'넣으면 스펀 17:30 출발 → 지우펀 18:15~19:45 야경 → 호텔 20:45쯤 (10시간 이상)'}
+]},
+{id:'d4',date:'11/14',dow:'토',day:14,title:'소반베이커리 · 시립미술관 · 딘타이펑',note:'아침에 반차오에서 빵을 사서 호텔에 두고 미술관부터 가요. 토요일 점심이라 딘타이펑은 번호표를 받고 융캉제를 둘러보며 기다려요.',todo:[
+ ['공항 샌딩 차량 예약 (내일 11/15 10:00 출발)','호텔 → 도원공항 · 인원 3명과 캐리어 개수 · e-티켓에서 BX572 출발 터미널 확인']
+],items:[
+ {t:'08:30',ko:'호텔 출발',zh:HOTEL_ZH,addr:HOTEL_ADDR},
+ {mv:'mrt',min:15,segs:[['BL','西門','板橋','頂埔']],txt:'환승 없이 4정거장'},
+ {mv:'taxi',min:5,txt:'반차오역에서 택시 약 5분 (걸으면 약 14분)'},
+ {t:'09:00',ko:'소반베이커리 (小潘蛋糕坊 중정 본점)',zh:'小潘蛋糕坊 板橋中正店',addr:'新北市板橋區中正路135巷11之1號',note:'아침 빵 사기 · 8시쯤 문 열어요 · ☎ 02-2966-7721'},
+ {mv:'taxi',min:5,txt:'반차오역까지 택시 약 5분'},
+ {mv:'mrt',min:15,segs:[['BL','板橋','西門','南港展覽館']]},
+ {t:'09:45',ko:'호텔에 빵 두기',zh:HOTEL_ZH,addr:HOTEL_ADDR},
+ {mv:'mrt',min:30,segs:[['BL','西門','台北車站','南港展覽館'],['R','台北車站','圓山','淡水']],txt:'1번 출구에서 걸어서 약 8분'},
+ {t:'10:25',ko:'타이베이 시립미술관',zh:'臺北市立美術館',note:'9:30 개관 · 1시간 30분 정도 관람'},
+ {mv:'mrt',min:30,segs:[['R','圓山','東門','象山']],txt:'환승 없이 직통 · 내려서 걸어서 약 5분'},
+ {t:'12:25',ko:'딘타이펑 신생점',zh:'鼎泰豐 新生店',note:'번호표 먼저 받고 대기 시간 확인 · 기다리는 동안 융캉제 구경'},
+ {mv:'walk',min:5},
+ {t:'14:00',ko:'융캉제 간식',zh:'永康街',note:'누가크래커 · 50란 · 망고빙수'},
+ {mv:'walk',min:10},
+ {t:'15:10',ko:'중정기념당',zh:'中正紀念堂',note:'16시 근위병 교대식 (정시마다)'},
+ {mv:'mrt',min:10,segs:[['G','中正紀念堂','西門','松山']]},
+ {t:'16:15',ko:'호텔에서 쉬기',note:'시먼딩 구경 또는 까르푸 기념품 쇼핑'},
+ {t:'18:00',ko:'라오산둥 우육면 (저녁)',zh:'老山東牛肉家常麵店',note:'완녠빌딩 지하 1층'}
+]},
+{id:'d5',date:'11/15',dow:'일',day:15,title:'출국',note:'샌딩 차량으로 호텔에서 바로 공항에 가요. 10시 출발이에요.',items:[
+ {t:'08:30',ko:'조식 · 짐 정리 · 체크아웃',zh:HOTEL_ZH,addr:HOTEL_ADDR},
+ {t:'10:00',ko:'호텔 앞에서 샌딩 차량 출발',note:'토요일에 예약한 차량 · 출발 터미널을 기사에게 말해요'},
+ {mv:'car',min:45},
+ {t:'10:45',ko:'도원공항 도착',zh:'桃園國際機場',note:'BX572 13:25 출발 → 부산 17:00 · 남은 이지카드 잔액은 편의점에서 쓰기'}
+]}
+];
+const EN={'西門':'Ximen','龍山寺':'Longshan Temple','忠孝復興':'Zhongxiao Fuxing','動物園':'Taipei Zoo','南京復興':'Nanjing Fuxing','南京三民':'Nanjing Sanmin','台北101/世貿':'Taipei 101/World Trade Center','圓山':'Yuanshan','板橋':'Banqiao','台北車站':'Taipei Main Station','中正紀念堂':'Chiang Kai-Shek Memorial Hall','東門':'Dongmen','南港展覽館':'Taipei Nangang Exhibition Center','松山':'Songshan','淡水':'Tamsui','新店':'Xindian','象山':'Xiangshan','頂埔':'Dingpu'};
+const LINE={BL:'블루라인',BR:'브라운라인',G:'그린라인',R:'레드라인'};
+const INFO={
+'지아펀 훠궈 (점심)':['우유 마라훠궈로 알려진 시먼딩 훠궈집','아이가 있으면 맵지 않은 육수와 반반 냄비(鴛鴦鍋)로 주문','건물 2층 · 무한리필이면 이용 시간 제한(보통 90분)'],
+'보피랴오 거리 · 향토교육중심':['청나라부터 일제강점기까지의 붉은 벽돌 옛 거리. 타이베이에서 가장 오래된 동네 완화(멍자)의 모습이 남아 있어요','붉은 벽돌 아케이드 거리 사진, 향토교육센터의 옛 교실과 생활 전시','영화 〈맹갑(艋舺)〉 촬영지 · 무료 · 17시쯤 마감'],
+'룽산쓰':['1738년에 세운 타이베이 대표 사원. 불교와 도교의 여러 신을 함께 모셔요','용 기둥과 화려한 지붕 장식, 해 질 녘 조명 · 학업의 신 문창제군에게 아이 공부 기원 · 붉은 반달 나무조각(쟈오베이)으로 점 보기','기도하는 사람 앞을 가로막지 않기 · 향불이 뜨거우니 아이 손 조심'],
+'까르푸 구이린점':['24시간 대형마트. 기념품을 한 번에 사기 좋아요','펑리수, 누가크래커, 망고젤리, 밀크티, 우롱차','고기 건더기가 든 컵라면은 한국 반입 금지 · 세금 환급은 기념품만 따로 계산'],
+'무지개 횡단보도 · 시먼홍러우':['시먼딩은 타이베이의 명동 같은 번화가. 홍러우는 1908년에 지은 팔각형 붉은 벽돌 시장 건물이에요','시먼역 앞 무지개 횡단보도 사진, 홍러우 안의 작은 공방과 기념품 가게','저녁에 사람이 아주 많아요 · 아이 손 꼭 잡기'],
+'근래철판구이 (저녁)':['요리사가 눈앞의 철판에서 구워 주는 세트 요리','스테이크와 새우, 해산물 세트 · 숙주볶음 같은 곁들이 요리','중국어 가게 이름을 확인하지 못했어요 · 지도 검색 결과가 맞는지 확인'],
+'타이베이 시립동물원':['아시아에서 손꼽히게 넓은 도시 동물원','자이언트 판다관, 코알라관, 펭귄이 있는 극지관','아주 넓어요. 원내 셔틀 열차(소액 유료)를 타면 편해요 · 판다관이 붐비면 번호표'],
+'치아더 펑리수':['타이베이에서 가장 유명한 펑리수 빵집','오리지널 펑리수, 달걀노른자 펑리수, 맛별 모둠 상자','줄이 길 수 있어요 · 유통기한 확인'],
+'써니힐 (펑리수)':['새콤하고 과육이 씹히는 펑리수 브랜드. 카페 같은 매장','매장에서 차와 펑리수를 맛볼 수 있는 것으로 알려져 있어요','치아더보다 조금 비싼 편'],
+'타이베이101 전망대':['높이 508m. 한때 세계에서 가장 높았던 빌딩','89층 실내 전망대의 일몰과 야경, 초고속 엘리베이터, 건물 흔들림을 잡는 거대한 금색 추(댐퍼)','흐리면 전망이 안 보여요 · 일몰 시간대가 가장 붐벼요'],
+'저녁 · 키키 레스토랑 (ATT 4 FUN점)':['키키는 쓰촨식 요리 체인이에요','키키의 연두부 튀김 · 푸드코트는 메뉴가 다양해서 아이 메뉴 고르기 편해요','키키는 매운 메뉴가 많아요 · 아이용 안 매운 메뉴 확인'],
+'예류지질공원':['바닷바람과 파도가 깎아 만든 버섯 모양 바위 해안','여왕머리 바위(女王頭) 사진 · 촛대바위와 생강바위','그늘이 없고 바위가 미끄러워요 · 빨간 선 밖 출입 금지 · 바람막이'],
+'점심 · 예류 항구 식당가':['작은 어항 앞 해산물 식당가','수조에서 해산물을 골라 요리를 부탁하는 방식','무게 단위 가격이라 주문 전에 가격 확인'],
+'스펀폭포':['"대만의 나이아가라"라고 불리는 넓은 폭포','출렁다리 건너기 · 맑은 날엔 물보라에 무지개','주차장에서 걸어서 약 15분 · 무료 · 물가 근처 미끄럼 주의'],
+'스펀 옛거리 · 풍등 날리기':['핑시선 기찻길 바로 옆에 가게들이 늘어선 마을','풍등에 가족 소원을 붓으로 쓰고 기찻길에서 날리기(색마다 소원 뜻이 달라요) · 닭날개볶음밥(雞翅包飯)','기차가 오면 직원 호루라기에 맞춰 비키기 · 해 질 녘이 가장 예뻐요'],
+'지우펀 (선택)':['산비탈의 옛 금광 마을. 홍등 골목 야경으로 유명해요','수치루 홍등 계단과 아메이차루 찻집 · 땅콩 아이스크림 롤 · 위위안(芋圓)','계단이 가파르고 저녁에 아주 붐벼요'],
+'딘타이펑 신생점':['샤오롱바오로 세계에 알려진 대만 딤섬 체인','샤오롱바오, 송로버섯 샤오롱바오, 갈비튀김 계란볶음밥, 오이무침','생강채에 간장과 식초를 섞은 소스와 함께 · 도착하면 번호표부터'],
+'융캉제 간식':['카페와 간식 가게가 모인 골목','50란 버블티(당도와 얼음 양 선택), 누가크래커, 망고빙수','11월은 생망고 철이 아니라 냉동 망고일 수 있어요'],
+'소반베이커리 (小潘蛋糕坊 중정 본점)':['반차오 주택가 골목의 유명 빵집. 노른자가 든 펑리수 "펑황수(鳳黃酥)"로 유명해요','펑황수 · 선물용 상자','골목 안이라 찾기 어려우니 택시 추천 · 많이 팔리면 일찍 닫을 수 있어 전화 확인 · 현금 준비'],
+'타이베이 시립미술관':['1983년에 문을 연 대만 최초의 현대미술관. 하얀 격자 모양 건물이 특징이에요','그때그때 바뀌는 현대미술 기획전 · 아이와 볼 만한 체험형 전시가 있는지 입구에서 확인','월요일 휴관 · 입장료가 저렴하고 아이는 무료일 수 있어요 · 토요일은 저녁까지 연장 개장하는 것으로 알려져 있어요'],
+'중정기념당':['장제스를 기념하는 파란 지붕의 흰 건물과 넓은 광장','정시 근위병 교대식(9~17시) · 광장 양쪽의 국가음악청과 국가희극원','교대식은 10분 전에 가서 자리 잡기 · 계단이 많아요'],
+'라오산둥 우육면 (저녁)':['오래된 우육면집. 미쉐린 가이드에 소개된 곳으로 알려져 있어요','간장 양념의 홍샤오 우육면과 직접 뽑은 면','완녠빌딩 지하 1층 · 저녁 시간엔 대기가 있을 수 있어요']
+};
+const MODE={mrt:'MRT',walk:'도보',car:'차',taxi:'택시',bus:'버스'};
+const RES=[
+ ['r1','공항 → 호텔 픽업 (11/11)','번호 앞 0 빼기 · 캐리어 개수 · 피켓 · 터미널'],
+ ['r2','택시투어 8시간 (11/13)','통행료·주차 포함 여부 · 카시트 · 한국어'],
+ ['r4','공항 샌딩 차량 (11/15 10:00)','11/14 토요일에 예약'],
+ ['r5','101 전망대 티켓 (11/12)','전날(11/11 수) 날씨 보고 예매'],
+ ['r9','이지카드 3장 (공항 수령)','11/11 도착 후 공항 카운터에서 받기'],
+ ['r6','지아펀 훠궈 · 철판구이 예약 (11/11)','inline 또는 전화'],
+ ['r7','eSIM · 온라인 입국신고서','공식 사이트 twac.immigration.gov.tw (무료)'],
+ ['r8','여행자보험에 아이 포함 확인','']
+];
+const PHRASES=[
+ ['고수 빼 주세요','不要香菜'],
+ ['화장실 어디예요?','廁所在哪裡？'],
+ ['이거 주세요','我要這個'],
+ ['계산해 주세요','買單'],
+ ['포장해 주세요','外帶'],
+ ['세 명이에요 (어른 2, 아이 1)','三位，兩個大人一個小孩'],
+ ['아기의자 있어요?','有兒童椅嗎？']
+];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const todayDay=(()=>{const d=new Date();return d.getFullYear()===2026&&d.getMonth()===10?d.getDate():0})();
+function mapUrl(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q)}
+function hm(m){return m>=60?Math.floor(m/60)+'시간'+(m%60?' '+m%60+'분':''):m+'분'}
+
+const BF=[
+ {g:'대만 전통 아침 (두유 · 단빙 · 판퇀)',items:[
+  {ko:'시먼딩더우장',zh:'西門町豆漿',q:'西門町豆漿 漢口街二段',feat:'1978년부터 한 작은 노점 아침집. 참치·계란·찹쌀 단빙, 판퇀 등 메뉴가 많아요',hours:'7:00~13:30',dist:'시먼역 6번 출구에서 한중제(漢中街)를 따라 네 블록',pick:true},
+  {ko:'융허더우장 (한커우제점)',zh:'永和豆漿',addr:'台北市萬華區漢口街二段30號',feat:'관광객이 가장 많이 가는 곳. 짠 두유, 요우티아오, 단빙. 맛은 평범하다는 평도 있어요',hours:'출처마다 달라요',dist:'걸어서 약 5분'},
+  {ko:'간메이눙탕',zh:'甘妹弄堂',q:'甘妹弄堂 西門',feat:'치즈와 계란을 넣은 파전병(蔥抓餅)으로 인기. 아이도 좋아할 맛',hours:'확인 필요',dist:'시먼딩'},
+  {ko:'국군영웅관 아침 뷔페',zh:'國軍英雄館',addr:'台北市長沙街二段1號',feat:'만터우, 두유, 죽, 가정식 반찬 뷔페. 1인 약 NT$130~150',hours:'일반 손님 이용 여부 확인',dist:'시먼 근처 장사제'}
+ ]},
+ {g:'아침으로 먹는 대만 음식 (면 · 죽)',items:[
+  {ko:'아쭝몐셴',zh:'阿宗麵線',q:'阿宗麵線 西門町',feat:'시먼딩 명물 곱창 국수. 서서 먹는 곳이고 줄이 길어요',hours:'확인 필요',dist:'걸어서 약 5분'},
+  {ko:'시먼몐뎬',zh:'西門麵店',feat:'24시간 작은 국수집. 아침으로 많이 먹어요',hours:'24시간',dist:'시먼딩'},
+  {ko:'칭취안하오 표고버섯 죽',zh:'清泉號香菇粥',q:'清泉號香菇粥 華西街',feat:'1970년부터 한 표고버섯 죽 노점',hours:'확인 필요',dist:'화시제 쪽, 룽산쓰 근처'},
+  {ko:'아보단바오몐',zh:'阿伯蛋包麵',q:'阿伯蛋包麵 雙園街',feat:'계란 넣은 면 노포',hours:'03:30~14:00',dist:'완화 쪽, 조금 멀어요'}
+ ]},
+ {g:'옛날 타이베이 분위기 (토스트 · 커피)',items:[
+  {ko:'펑다카페',zh:'蜂大咖啡',addr:'台北市萬華區成都路42號',feat:'1950년대부터 한 커피집. 햄 계란 토스트와 블랙커피',hours:'확인 필요',dist:'시먼딩 성두로'},
+  {ko:'난메이카페',zh:'南美咖啡',q:'南美咖啡 西門町',feat:'1950년대부터 한 시먼딩 커피집. 토스트, 계란, 핸드드립 커피',hours:'확인 필요',dist:'시먼딩'}
+ ]},
+ {g:'조금 멀지만 유명한 곳',items:[
+  {ko:'푸항더우장',zh:'阜杭豆漿',addr:'台北市中正區忠孝東路一段108號2樓',feat:'타이베이에서 가장 유명한 아침집. 두유, 허우빙자단(厚餅夾蛋)',hours:'월요일 휴무 · 점심 무렵 마감',dist:'블루라인 Shandao Temple역 5번 출구 (2정거장) · 줄 1시간 이상'}
+ ]}
+];
+function renderBF(){
+  let h=`<div class="dayhead"><h2>호텔 근처 아침 식당</h2><p class="daynote">여행 블로그와 기사에서 모은 정보예요. 영업시간은 가기 전에 지도에서 확인하세요. 작은 가게는 현금만 받는 곳이 많아요.</p></div>`;
+  BF.forEach(sec=>{
+    h+=`<h3 class="bfg">${esc(sec.g)}</h3><div class="bflist">`;
+    sec.items.forEach(i=>{
+      const q=i.q||(i.addr?i.zh+' '+i.addr:i.zh);
+      h+=`<div class="card"><div class="ko">${esc(i.ko)}${i.pick?' <span class="pick">추천</span>':''}</div>
+        <div class="zhrow"><span class="zh" lang="zh-Hant">${esc(i.zh)}</span></div>
+        ${i.addr?`<div class="zhrow"><span class="zh" lang="zh-Hant" style="font-size:13.5px;color:var(--muted)">${esc(i.addr)}</span></div>`:''}
+        <dl class="info"><dt>특징</dt><dd>${esc(i.feat)}</dd><dt>영업시간</dt><dd>${esc(i.hours)}</dd><dt>위치</dt><dd>${esc(i.dist)}</dd></dl>
+        <div class="acts">${copyBtn(i.zh,'이름 복사')}${i.addr?copyBtn(i.addr,'주소 복사'):''}<a class="btn" href="${mapUrl(q)}" target="_blank" rel="noopener">지도</a></div></div>`;
+    });
+    h+='</div>';
+  });
+  return h;
+}
+function renderTabs(cur){
+  const tabs=DAYS.map(d=>`<button class="tab" role="tab" id="tab-${d.id}" aria-selected="${d.id===cur}" data-id="${d.id}"><b>${d.date}</b><small>${d.dow}</small>${d.day===todayDay?'<span class="today">오늘</span>':''}</button>`).join('')
+   +`<button class="tab" role="tab" id="tab-breakfast" aria-selected="${cur==='breakfast'}" data-id="breakfast"><b>아침</b><small>식당</small></button>`
+   +`<button class="tab" role="tab" id="tab-info" aria-selected="${cur==='info'}" data-id="info"><b>정보</b><small>준비·회화</small></button>`;
+  $('#tabs').innerHTML=tabs;
+}
+function copyBtn(text,label){return `<button class="btn copy" data-copy="${esc(text)}">${esc(label||'복사')}</button>`}
+function renderDay(d){
+  const total=d.items.filter(i=>i.mv).reduce((a,i)=>a+i.min,0);
+  let h=`<div class="dayhead"><h2>${d.date} (${d.dow}) ${esc(d.title)}</h2>
+   <div class="meta"><span class="pill">이동 합계 <strong>${hm(total)}</strong></span><span class="pill">장소 <strong>${d.items.filter(i=>!i.mv&&i.zh).length}</strong>곳</span></div>
+   <p class="daynote">${esc(d.note)}</p></div>`;
+  if(d.todo) h+=`<section class="box"><h3>오늘 할 일</h3>${d.todo.map(([t,s],n)=>{const id='todo-'+d.id+'-'+n;return `<label class="check"><input type="checkbox" id="${id}" ${store.get('chk-'+id)==='1'?'checked':''}><span>${esc(t)}${s?`<small>${esc(s)}</small>`:''}</span></label>`}).join('')}</section>`;
+  h+=`<div class="tl">`;
+  d.items.forEach(i=>{
+    if(i.mv){
+      let segs='';
+      if(i.bus&&i.segs&&i.txt==='환승 없이 직통') segs+=`<div class="seg"><span class="ln" style="background:var(--BUS)">BUS</span><span>${esc(i.bus)}</span></div>`;
+      (i.segs||[]).forEach(s=>{segs+=`<div class="seg"><span class="ln" style="background:var(--${s[0]})">${s[0]}</span><span class="path"><span class="st">${esc(s[1])} <em>${esc(EN[s[1]]||'')}</em></span> <span class="arrow">→</span> <span class="st">${esc(s[2])} <em>${esc(EN[s[2]]||'')}</em></span></span></div>${s[3]?`<div class="dir">${LINE[s[0]]} <b>${esc(EN[s[3]]||'')} ${esc(s[3])} 방면</b> 타기</div>`:''}`});
+      if(i.bus&&i.txt!=='환승 없이 직통') segs+=`<div class="seg"><span class="ln" style="background:var(--BUS)">BUS</span><span>${esc(i.bus)}</span></div>`;
+      h+=`<div class="move"><div class="railcol"><i></i></div><div class="mv"><div class="mvtop"><span class="mode">${MODE[i.mv]}</span><span class="dur">약 ${hm(i.min)}</span>${i.txt?`<span>${esc(i.txt)}</span>`:''}</div>${segs}</div></div>`;
+    }else{
+      const q=i.q||i.zh||i.addr||i.ko;
+      h+=`<div class="stop"><div class="time">${esc(i.t)}</div><div class="card${i.opt?' optional':''}">
+        <div class="ko">${esc(i.ko)}</div>
+        ${i.zh?`<div class="zhrow"><span class="zh" lang="zh-Hant">${esc(i.zh)}</span></div>`:''}
+        ${i.addr?`<div class="zhrow"><span class="zh" lang="zh-Hant" style="font-size:13.5px;color:var(--muted)">${esc(i.addr)}</span></div>`:''}
+        ${i.note?`<p class="note">${esc(i.note)}</p>`:''}
+        ${INFO[i.ko]?`<dl class="info"><dt>특징</dt><dd>${esc(INFO[i.ko][0])}</dd><dt>꼭 볼 것</dt><dd>${esc(INFO[i.ko][1])}</dd><dt>특이사항</dt><dd>${esc(INFO[i.ko][2])}</dd></dl>`:''}
+        <div class="acts">${i.zh?copyBtn(i.zh,i.label?i.label+' 복사':'이름 복사'):''}${i.addr?copyBtn(i.addr,'주소 복사'):''}<a class="btn" href="${mapUrl(q)}" target="_blank" rel="noopener">지도</a></div>
+      </div></div>`;
+    }
+  });
+  return h+'</div>';
+}
+function renderInfo(){
+  const checks=RES.map(([id,t,s])=>`<label class="check"><input type="checkbox" id="${id}" ${store.get('chk-'+id)==='1'?'checked':''}><span>${esc(t)}${s?`<small>${esc(s)}</small>`:''}</span></label>`).join('');
+  const ph=PHRASES.map(([k,z])=>`<div class="phr"><div><div class="zh" lang="zh-Hant">${esc(z)}</div><div class="k">${esc(k)}</div></div>${copyBtn(z)}</div>`).join('');
+  return `<div class="dayhead"><h2>여행 정보</h2><p class="daynote">택시 기사에게 화면을 보여주거나, 중국어를 복사해서 번역 앱에 붙여 넣으세요.</p></div>
+  <section class="box"><h3>택시 기사에게 보여주기</h3>
+   <div class="show" lang="zh-Hant">請帶我到<br>${HOTEL_ZH}<br>${HOTEL_ADDR}</div>
+   <div class="acts">${copyBtn('請帶我到 '+HOTEL_ZH+' '+HOTEL_ADDR,'중국어 복사')}<a class="btn" href="${mapUrl(HOTEL_ZH)}" target="_blank" rel="noopener">호텔 지도</a></div></section>
+  <section class="box"><h3>예약 체크리스트</h3>${checks}<p class="note">체크 표시는 이 휴대폰에만 저장돼요.</p></section>
+  <section class="box"><h3>환율 계산 (1 대만달러 ≈ 45원)</h3>
+   <div class="conv"><label for="twd">NT$</label><input id="twd" type="number" inputmode="numeric" value="250" min="0"><span>≈</span><output id="krw"></output></div>
+   <p class="note">대략적인 값이에요. 정확한 환율은 은행 앱에서 확인하세요.</p></section>
+  <section class="box"><h3>유용한 중국어</h3>${ph}</section>
+  <section class="box"><h3>긴급 연락처</h3>
+   <div class="phr"><div><div class="tel">110</div><div class="k">경찰</div></div>${copyBtn('110')}</div>
+   <div class="phr"><div><div class="tel">119</div><div class="k">구급 · 화재</div></div>${copyBtn('119')}</div>
+   <div class="phr"><div><div class="tel">+82-2-3210-0404</div><div class="k">외교부 영사콜센터 (24시간)</div></div>${copyBtn('+82-2-3210-0404')}</div>
+  </section>
+  <section class="box"><h3>꼭 기억하기</h3>
+   <p class="note">MRT 개찰구 안에서는 물·사탕·껌도 먹으면 안 돼요 · 에스컬레이터는 오른쪽에 서기 · 수돗물 마시지 않기 · 고기 가공품 반입 금지 · 보조배터리는 기내에</p></section>`;
+}
+function show(id){
+  if(id!=='info'&&id!=='breakfast'&&!DAYS.some(d=>d.id===id)) id='d1';
+  renderTabs(id);
+  $('#main').innerHTML=id==='info'?renderInfo():id==='breakfast'?renderBF():renderDay(DAYS.find(d=>d.id===id));
+  store.set('tab',id);
+  const t=document.getElementById('tab-'+id); if(t&&t.scrollIntoView) t.scrollIntoView({block:'nearest',inline:'nearest'});
+  if(id==='info') conv();
+}
+function conv(){const i=$('#twd'),o=$('#krw');if(!i)return;const v=Math.max(0,+i.value||0);o.textContent=Math.round(v*45).toLocaleString('ko-KR')+'원'}
+let tt;function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),1800)}
+function selectText(btn){const card=btn.closest('.card,.phr,.box');const el=card&&card.querySelector('.zh,.show,.tel');if(!el)return;const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}
+document.addEventListener('click',e=>{
+  const tab=e.target.closest('.tab');
+  if(tab){const id=tab.dataset.id;if(location.hash!=='#'+id)location.hash=id;else show(id);window.scrollTo(0,0);return}
+  const b=e.target.closest('[data-copy]');
+  if(b){const text=b.dataset.copy,orig=b.textContent;
+    const ok=()=>{b.classList.add('done');b.textContent='복사됨';toast('복사했어요: '+text);setTimeout(()=>{b.classList.remove('done');b.textContent=orig},1500)};
+    const fail=()=>{selectText(b);toast('글자가 선택됐어요. 길게 눌러 복사하세요')};
+    try{navigator.clipboard.writeText(text).then(ok,fail)}catch(err){fail()}
+  }
+});
+document.addEventListener('change',e=>{if(e.target.matches('.check input'))store.set('chk-'+e.target.id,e.target.checked?'1':'0')});
+document.addEventListener('input',e=>{if(e.target.id==='twd')conv()});
+window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
+const start=location.hash.slice(1)||(todayDay>=11&&todayDay<=15?'d'+(todayDay-10):store.get('tab'))||'d1';
+show(start);
+</script>
+
+</body>
+</html>
