@@ -87,6 +87,9 @@ main{padding-block:18px 48px}
 dl.info{margin:2px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:13px;border-top:1px solid var(--line);padding-top:8px}
 dl.info dt{font-weight:600;color:var(--accent);white-space:nowrap}
 dl.info dd{margin:0;min-width:0}
+.kr{font-size:13px;color:var(--ink);margin-top:-2px}
+.gn{font-size:12px;color:var(--muted)}
+.gn b{color:var(--ink);font-weight:600}
 h3.bfg{font-size:15px;margin:18px 0 8px}
 .bflist{display:flex;flex-direction:column;gap:10px}
 .pick{font-size:11px;font-weight:700;color:#fff;background:var(--accent);border-radius:4px;padding:1px 6px;vertical-align:2px}
@@ -280,12 +283,12 @@ function renderBF(){
   BF.forEach(sec=>{
     h+=`<h3 class="bfg">${esc(sec.g)}</h3><div class="bflist">`;
     sec.items.forEach(i=>{
-      const q=i.q||(i.addr?i.zh+' '+i.addr:i.zh);
+      const q=GN[i.zh]?gname(i.zh):(i.q||(i.addr?i.zh+' '+i.addr:i.zh));
       h+=`<div class="card"><div class="ko">${esc(i.ko)}${i.pick?' <span class="pick">추천</span>':''}</div>
-        <div class="zhrow"><span class="zh" lang="zh-Hant">${esc(i.zh)}</span></div>
+        ${nameRow(i.zh)}
         ${i.addr?`<div class="zhrow"><span class="zh" lang="zh-Hant" style="font-size:13.5px;color:var(--muted)">${esc(i.addr)}</span></div>`:''}
         <dl class="info"><dt>특징</dt><dd>${esc(i.feat)}</dd><dt>영업시간</dt><dd>${esc(i.hours)}</dd><dt>위치</dt><dd>${esc(i.dist)}</dd></dl>
-        <div class="acts">${copyBtn(i.zh,'이름 복사')}${i.addr?copyBtn(i.addr,'주소 복사'):''}<a class="btn" href="${mapUrl(q)}" target="_blank" rel="noopener">지도</a></div></div>`;
+        <div class="acts">${copyBtn(gname(i.zh),'이름 복사')}${i.addr?copyBtn(i.addr,'주소 복사'):''}<a class="btn" href="${mapUrl(q)}" target="_blank" rel="noopener">지도</a></div></div>`;
     });
     h+='</div>';
   });
@@ -297,6 +300,45 @@ function renderTabs(cur){
    +`<button class="tab" role="tab" id="tab-info" aria-selected="${cur==='info'}" data-id="info"><b>정보</b><small>준비·회화</small></button>`;
   $('#tabs').innerHTML=tabs;
 }
+const GN={
+ '桃園國際機場':['Taoyuan International Airport Terminal 2','타오위안 국제공항 2터미널'],
+ '索拉利亞西鐵飯店 台北西門':['Solaria Nishitetsu Hotel Taipei Ximen','솔라리아 니시테츠 호텔 타이베이 시먼'],
+ '台北市萬華區漢中街50巷2號2樓':['지아펀 타이베이 시먼점','지아펀 타이베이 시먼점'],
+ '佳賓餅家 西門町店':['佳賓餅家 西門町店','자빈빙자 시먼딩점'],
+ '剝皮寮歷史街區':['剝皮寮歷史街區','보피랴오 역사거리'],
+ '艋舺龍山寺':['艋舺龍山寺','멍자 룽산쓰 (용산사)'],
+ '家樂福 桂林店':['PROSPERiTY PLAZA Guilin Store','까르푸 구이린점'],
+ '西門紅樓':['西門紅樓','시먼 홍러우'],
+ '根萊鐵板燒':['根萊鐵板燒','건라이 철판구이 (근래철판구이)'],
+ '臺北市立動物園':['Taipei Zoo','타이베이 시립동물원'],
+ '台北101觀景台':['Taipei 101 Observatory','타이베이 101 전망대'],
+ 'KiKi餐廳 ATT 4 FUN':['KiKi Restaurant ATT 4 FUN','키키 레스토랑 ATT 4 FUN점'],
+ '野柳地質公園':['Yehliu Geopark','예류 지질공원'],
+ '野柳漁港':['野柳漁港','예류 어항'],
+ '十分瀑布':['Shifen Waterfall','스펀 폭포'],
+ '十分老街':['Shifen Old Street','스펀 옛거리'],
+ '九份老街':['Jiufen Old Street','지우펀 옛거리'],
+ '小潘蛋糕坊 板橋中正店':['小潘蛋糕坊 板橋中正店','샤오판 케이크 반차오 중정점 (소반베이커리)'],
+ '臺北市立美術館':['Taipei Fine Arts Museum','타이베이 시립미술관'],
+ '鼎泰豐 新生店':['Din Tai Fung Xinsheng Branch','딘타이펑 신생점'],
+ '永康街':['Yongkang Street','융캉제'],
+ '中正紀念堂':['Chiang Kai-shek Memorial Hall','중정기념당'],
+ '老山東牛肉家常麵店':['老山東牛肉家常麵店','라오산둥 우육면'],
+ '西門町豆漿':['西門町豆漿','시먼딩 더우장'],
+ '永和豆漿':['永和豆漿 漢口街','융허 더우장'],
+ '甘妹弄堂':['甘妹弄堂','간메이눙탕'],
+ '國軍英雄館':['國軍英雄館','국군영웅관'],
+ '阿宗麵線':['阿宗麵線','아쭝 몐셴'],
+ '西門麵店':['西門麵店','시먼 몐뎬'],
+ '清泉號香菇粥':['清泉號香菇粥','칭취안하오 표고버섯 죽'],
+ '阿伯蛋包麵':['阿伯蛋包麵','아보 단바오몐'],
+ '蜂大咖啡':['蜂大咖啡','펑다 카페'],
+ '南美咖啡':['南美咖啡','난메이 카페'],
+ '阜杭豆漿':['阜杭豆漿','푸항 더우장']
+};
+const gname=z=>(GN[z]||[z])[0];
+const kname=z=>(GN[z]||[])[1]||'';
+function nameRow(z){const g=gname(z),k=kname(z);return `<div class="zhrow"><span class="zh" lang="zh-Hant">${esc(z)}</span></div>${k?`<div class="kr">${esc(k)}</div>`:''}${g!==z?`<div class="gn">구글 지도 이름: <b>${esc(g)}</b></div>`:''}`}
 function copyBtn(text,label){return `<button class="btn copy" data-copy="${esc(text)}">${esc(label||'복사')}</button>`}
 function renderDay(d){
   const total=d.items.filter(i=>i.mv).reduce((a,i)=>a+i.min,0);
@@ -313,14 +355,14 @@ function renderDay(d){
       if(i.bus&&i.txt!=='환승 없이 직통') segs+=`<div class="seg"><span class="ln" style="background:var(--BUS)">BUS</span><span>${esc(i.bus)}</span></div>`;
       h+=`<div class="move"><div class="railcol"><i></i></div><div class="mv"><div class="mvtop"><span class="mode">${MODE[i.mv]}</span><span class="dur">약 ${hm(i.min)}</span>${i.txt?`<span>${esc(i.txt)}</span>`:''}</div>${segs}</div></div>`;
     }else{
-      const q=i.q||i.zh||i.addr||i.ko;
+      const q=(i.zh&&GN[i.zh])?gname(i.zh):(i.q||i.zh||i.addr||i.ko);
       h+=`<div class="stop"><div class="time">${esc(i.t)}</div><div class="card${i.opt?' optional':''}">
         <div class="ko">${esc(i.ko)}</div>
-        ${i.zh?`<div class="zhrow"><span class="zh" lang="zh-Hant">${esc(i.zh)}</span></div>`:''}
+        ${i.zh?nameRow(i.zh):''}
         ${i.addr?`<div class="zhrow"><span class="zh" lang="zh-Hant" style="font-size:13.5px;color:var(--muted)">${esc(i.addr)}</span></div>`:''}
         ${i.note?`<p class="note">${esc(i.note)}</p>`:''}
         ${INFO[i.ko]?`<dl class="info"><dt>특징</dt><dd>${esc(INFO[i.ko][0])}</dd><dt>꼭 볼 것</dt><dd>${esc(INFO[i.ko][1])}</dd><dt>특이사항</dt><dd>${esc(INFO[i.ko][2])}</dd></dl>`:''}
-        <div class="acts">${i.zh?copyBtn(i.zh,i.label?i.label+' 복사':'이름 복사'):''}${i.addr?copyBtn(i.addr,'주소 복사'):''}<a class="btn" href="${mapUrl(q)}" target="_blank" rel="noopener">지도</a></div>
+        <div class="acts">${i.zh?copyBtn(i.label?i.zh:gname(i.zh),i.label?i.label+' 복사':'이름 복사'):''}${i.addr?copyBtn(i.addr,'주소 복사'):''}<a class="btn" href="${mapUrl(q)}" target="_blank" rel="noopener">지도</a></div>
       </div></div>`;
     }
   });
